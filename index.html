@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style> -->
+</head>
+<body>
+  <header class="header">
+    <div class="header_menu_wrapper">
+      <div class="mobile_menu">
+        <div class="mobile_hamburger_menu" id="mobile_hamburger_menu" ><img src="./images/icon-menu.svg" alt="logo" /></div>
+        <div class="mobile_close_menu" id="mobile_close_menu"><img src="./images/icon-close.svg" alt="logo" /></div> 
+      </div>
+      <div class="header_logo_wrapper">
+        <img src="./images/logo.svg" alt="logo" class="header_logo" />
+      </div>
+      <nav class="nav_large nav_mobile">
+        <a href="#">Collections</a>
+        <a href="#">Women</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+    <div class="cart_and_avatar">
+      <img src="./images/icon-cart.svg" alt="" class="cart">
+      <img src="./images/image-avatar.png" class="avatar">
+    </div>
+  </header>
+  <hr style="height: 0.1px; background-color: #f7f8fd; opacity: 0.3;">
+  <div class="header_cart_hoverbox">
+    <div class="header-cart-absolute">
+      <p class="header_hover">Cart</p>
+      <div class="header-cart-quantity"><p>this cart is empty</p></div>
+      <div class="header-cart-quantity"><p>you have <span id="cart-quantity">0</span> items in your cart</p></div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="main_image_wrapper">
+      <div class="main_product_image">
+        <img src="./images/image-product-1-thumbnail.jpg" alt="">
+      </div>
+      <div class="main_product_thumbnails">
+        <div class="main_product_option"><img src="./images/image-product-1-thumbnail.jpg" alt="" class="felx_thumbnails">
+        </div>
+        <div class="main_product_option"><img src="./images/image-product-2-thumbnail.jpg" alt="" class="felx_thumbnails">
+        </div>
+        <div class="main_product_option">
+          <img src="./images/image-product-3-thumbnail.jpg" alt="" class="felx_thumbnails">
+        </div>
+        <div class="main_product_option"><img src="./images/image-product-4-thumbnail.jpg" alt="" class="felx_thumbnails">
+        </div>
+      </div>
+    </div>
+    <div class="main_text">  
+      <div class="main_text_name_head">
+        <p>Sneaker Company</p>
+        <h1>Fall Limited Edition Sneakers</h1>
+      </div>
+
+      <div class="main_text_body">
+        <p>
+          These low-profile sneakers are your perfect casual wear      companion. Featuring a 
+          durable rubber outer sole, they’ll withstand everything the weather can offer.
+        </p>
+      </div>
+
+      <div class="main_text_detail">
+        <div class="main_text_amount">
+          <div><h1>$<span id="new-price">125.00</span></h1></div>
+          <div class="main_text_discount"><span >50</span>%</div>
+        </div>
+        <div class="main_text_strike">
+          <p id="old-price">$250.00</p>
+        </div>
+        <div class="main_text_cart">
+          <div class="main_text_add_cart">
+            <button id="subtract"><img src="./images/icon-minus.svg" alt=""></button>
+            <button id="main_text_inrement">0</button>
+            <button id="add"><img src="./images/icon-plus.svg" alt=""  ></button>
+          </div>
+          <div class="main_text_cart_button">
+            <button id="add-to-cart">
+              <img src="./images/icon-cart.svg" alt="">
+              Add to cart
+            </button>
+
+           <!-- <div >
+            <p>you have <span id="cart-quantity">0</span> shoes in your cart</p>
+            <p>amount to be paid is $<span id="total-cost"></span></p>
+           </div> -->
+
+          </div>
+        </div>
+      </div>
+      
+    
+      
+    
+      
+    </div>
+  </div>
+  <p id="greeting"></p>
+  
+  
+  
+
+
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">osagie osaze isreal</a>.
+  </footer>
+  <script src="./index.js"></script>
+</body>
+</html>
