@@ -17,11 +17,13 @@
   </style> -->
 </head>
 <body>
+ <section class="container">
   <header class="header">
     <div class="header_menu_wrapper">
       <div class="mobile_menu">
-        <div class="mobile_hamburger_menu" id="mobile_hamburger_menu" ><img src="./images/icon-menu.svg" alt="logo" /></div>
-        <div class="mobile_close_menu" id="mobile_close_menu"><img src="./images/icon-close.svg" alt="logo" /></div> 
+        <div class="mobile_hamburger_menu" id="mobile_hamburger_menu"><img src="./images/icon-menu.svg" alt="logo" />
+        </div>
+        <div class="mobile_close_menu" id="mobile_close_menu"><img src="./images/icon-close.svg" alt="logo" /></div>
       </div>
       <div class="header_logo_wrapper">
         <img src="./images/logo.svg" alt="logo" class="header_logo" />
@@ -42,11 +44,17 @@
   <div class="header_cart_hoverbox">
     <div class="header-cart-absolute">
       <p class="header_hover">Cart</p>
-      <div class="header-cart-quantity"><p>this cart is empty</p></div>
-      <div class="header-cart-quantity"><p>you have <span id="cart-quantity">0</span> items in your cart</p></div>
+      <div class="header-cart-quantity">
+        <p id="empty-cart">this cart is empty</p>
+      </div>
+      <div class="header-cart-quantity">
+        <p>You have <span id="cart-quantity">0</span> items in your cart</p>
+        <div class="checkout__button"><button type="button" onclick="window.location.href='checkout.html'">Checkout</button></div>
+      </div>
     </div>
+ 
   </div>
-
+  
   <div class="main">
     <div class="main_image_wrapper">
       <div class="main_product_image">
@@ -64,23 +72,25 @@
         </div>
       </div>
     </div>
-    <div class="main_text">  
+    <div class="main_text">
       <div class="main_text_name_head">
         <p>Sneaker Company</p>
         <h1>Fall Limited Edition Sneakers</h1>
       </div>
-
+  
       <div class="main_text_body">
         <p>
-          These low-profile sneakers are your perfect casual wear      companion. Featuring a 
+          These low-profile sneakers are your perfect casual wear companion. Featuring a
           durable rubber outer sole, they’ll withstand everything the weather can offer.
         </p>
       </div>
-
+  
       <div class="main_text_detail">
         <div class="main_text_amount">
-          <div><h1>$<span id="new-price">125.00</span></h1></div>
-          <div class="main_text_discount"><span >50</span>%</div>
+          <div>
+            <h1>$<span id="new-price">125.00</span></h1>
+          </div>
+          <div class="main_text_discount"><span>50</span>%</div>
         </div>
         <div class="main_text_strike">
           <p id="old-price">$250.00</p>
@@ -88,31 +98,32 @@
         <div class="main_text_cart">
           <div class="main_text_add_cart">
             <button id="subtract"><img src="./images/icon-minus.svg" alt=""></button>
-            <button id="main_text_inrement">0</button>
-            <button id="add"><img src="./images/icon-plus.svg" alt=""  ></button>
+            <button id="main_text_increment">0</button>
+            <button id="add"><img src="./images/icon-plus.svg" alt=""></button>
           </div>
           <div class="main_text_cart_button">
             <button id="add-to-cart">
               <img src="./images/icon-cart.svg" alt="">
               Add to cart
             </button>
-
-           <!-- <div >
-            <p>you have <span id="cart-quantity">0</span> shoes in your cart</p>
-            <p>amount to be paid is $<span id="total-cost"></span></p>
-           </div> -->
-
+  
+            <!-- <div >
+              <p>you have <span id="cart-quantity">0</span> shoes in your cart</p>
+              <p>amount to be paid is $<span id="total-cost"></span></p>
+             </div> -->
+  
           </div>
         </div>
       </div>
-      
-    
-      
-    
-      
+  
+  
+  
+  
+  
     </div>
   </div>
   <p id="greeting"></p>
+ </section>
   
   
   

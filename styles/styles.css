@@ -1,24 +1,30 @@
 html{
     font-size: 62.5%  /* 10px= 1em */
 }
+/* * {
+    margin: 0;
+} */
 
 a{
     text-decoration: none;
     color: gray;
 }
-body{
+.container{
  font-size: 1rem;
-    padding: 2rem 10%;
  font-family: "Kumbh Sans", system-ui;
   /* font-optical-sizing: auto;
   font-weight: <weight>;
   font-style: normal; */
   font-variation-settings: "YOPQ" 300;
+margin: 0;
+padding: 2rem 10%;
 }
+
 
 /* header*/
 .header{
     display: flex;
+    display: relative;
     justify-content: space-between;
     align-items: center;
     font-size: 1.5rem;
@@ -68,18 +74,32 @@ body{
 }
 
 .header_cart_hoverbox{
-    position: relative;
+    position: absolute;
+    /* display: block; */
     background-color: #ff0000;
     border-radius: 4px;
     width: 20rem;
     height: 15rem;
     box-shadow: 2px 2px;
-    top: 2rem;
-    bottom: 0;
-    right: 0;
-    left: 82rem;
-    /* float: inline-start; */
-    /* display: none; */
+    top: 10rem;
+    right: 15rem;
+  
+}
+.header_cart_quatity div{
+    width: 100%;
+}
+.checkout__button{
+background-color: #ff0000;
+    outline: none;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    
 }
 
 .header-cart-absolute{
@@ -240,9 +260,25 @@ body{
     }
 } */
 
-.attribution{
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 2rem 0px;
+    text-align: center; 
+    margin: 0;
+}
+
+/* .attribution{
     text-align: center;
     margin-top: 20rem;
+} */
+
+
+.checkout_container{
+  border: 1px solid red;   
+  width: 40%;
+  margin: 0 auto;
 }
 @media (min-width: 300px ) and (max-width: 600px ) {
 
@@ -305,8 +341,4 @@ body{
     }
 }
 
-footer{
-background-color: black;
-color: white;
-padding: 2rem 0px;
-}
+
