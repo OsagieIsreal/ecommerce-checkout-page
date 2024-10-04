@@ -18,12 +18,12 @@ const hamburgerMenu = document.getElementById('mobile_hamburger_menu')
 const closeMenu = document.getElementById('mobile_close_menu')
 
 hoverCart[0].addEventListener('click', function () {
-if( hoverCartBox[0].style.display == 'none'){
+if( hoverCartBox[0].style.display = 'none'){
     hoverCartBox[0].style.display = 'block'
 }else{
     hoverCartBox[0].style.display = 'none'
 }
-if (cartQuantity.innerText == 0) {
+if (Number(cartQuantity.innerText) == 0) {
   emptyCart.style.display = 'block'
   cartQuantity.parentElement.style.display = 'none'
 } else {
@@ -61,6 +61,7 @@ buttonDecrease.addEventListener('click', function () {
 })
 
 cart.addEventListener('click', function () {
+  // reload();
   cartQuantity.innerText = quantity.innerText
   const amount = Number(newPrice.innerText)
   const qty = Number(quantity.innerText)
@@ -79,6 +80,9 @@ function calculateCost(amount, quantity) {
   return itemCost
 }
 
+// function reload(){
+//   location.reload();
+// }
 // const box = document.getElementsByClassName('main_text_detail')
 // console.log(box, 'these are all the divs')
 // const p = document.createElement('p')
