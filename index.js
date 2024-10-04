@@ -16,13 +16,37 @@ const hoverCart = document.getElementsByClassName('cart')
 const hoverCartBox = document.getElementsByClassName('header_cart_hoverbox')
 const hamburgerMenu = document.getElementById('mobile_hamburger_menu')
 const closeMenu = document.getElementById('mobile_close_menu')
+const checkoutBtn = document.getElementById('checkout-button')
+const sneakersAmount = document.getElementById('sneakers-amount')
+const sneakersTotal = document.getElementById('sneakers-total')
+const checkOutPage = document.getElementById('checkout-body')
 
+const Paa = document.getElementById('itemNum')
+//checkout page script
+
+// document.getElementById('checkout-form').addEventListener('submit', function(checkout) {
+//   checkout.preventDefault();
+  
+//   // Simulate successful payment
+//   const successMessage = document.getElementById('success-message');
+//   successMessage.classList.add('show');
+
+//   setTimeout(() => {
+//     successMessage.classList.remove('show');
+//   }, 3000);
+// });
+
+let state = false
 hoverCart[0].addEventListener('click', function () {
-if( hoverCartBox[0].style.display = 'none'){
+ 
+  if( state == false || hoverCartBox[0].style.display == 'none'){
     hoverCartBox[0].style.display = 'block'
-}else{
+      state  = true
+}else if( state == true || hoverCartBox[0].style.display == 'block'){
     hoverCartBox[0].style.display = 'none'
+    
 }
+
 if (Number(cartQuantity.innerText) == 0) {
   emptyCart.style.display = 'block'
   cartQuantity.parentElement.style.display = 'none'
@@ -57,7 +81,15 @@ function incrementQuantity() {
 buttonAdd.addEventListener('click', incrementQuantity)
 
 buttonDecrease.addEventListener('click', function () {
-  quantity.innerText = Number(quantity.innerText) - 1
+  let qty =  Number(quantity.innerText)
+
+ if(qty != 0){
+  let Qty =  qty - 1
+  quantity.innerText = Qty
+  if(Qty == 0){
+    Paa.innerHTML = 'Your cart is empty'
+  }
+ }
 })
 
 cart.addEventListener('click', function () {
@@ -71,7 +103,12 @@ cart.addEventListener('click', function () {
   
 })
 
-console.log(quantity)
+checkoutBtn.addEventListener('click', ()=>{
+  
+  window.location.href='checkout.html'
+
+})
+
 
 function calculateCost(amount, quantity) {
   const itemCost = amount * quantity
@@ -79,6 +116,10 @@ function calculateCost(amount, quantity) {
     localStorage.setItem('cost', itemCost)
   return itemCost
 }
+
+
+
+  
 
 // function reload(){
 //   location.reload();
@@ -180,3 +221,10 @@ const students = [
 ]
 
 console.log(students[1].class)
+
+function getOrderDetails(){
+  cost = localStorage.getItem('cost')
+  sneakersTotal.innerText = `$${cost}`
+}
+
+// checkOutPage.addEventListener('load',getOrderDetails)

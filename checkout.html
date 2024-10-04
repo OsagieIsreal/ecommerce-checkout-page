@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple eCommerce Checkout</title>
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+</head>
+<body onload="getOrderDetails()" id="checkout-body">
+  <div class="felx">
+    <div class="checkout-container">
+      <h2>Checkout</h2>
+      
+      <div class="cart-summary">
+        <h3>Order Summary</h3>
+        <div class="cart-item">
+          <p>sneakers</p>
+          <span id="sneakers-amount"></span>
+        </div>
+        <div class="total">
+          <p><b>Total:</b></p>
+          <span><b id="sneakers-total"></b></span>
+        </div>
+      </div>
+      
+      <div class="payment-info">
+        <h3>Payment Information</h3>
+        <form id="checkout-form">
+          <label for="name">Name on Card</label>
+          <input type="text" id="name" required>
+          
+          <label for="card-number">Card Number</label>
+          <input type="text" id="card-number" required>
+          
+          <label for="expiry">Expiry Date</label>
+          <input type="text" id="expiry" placeholder="MM/YY" required>
+          
+          <label for="cvv">CVV</label>
+          <input type="text" id="cvv" required>
+          
+          <button type="submit" class="submit-btn">Submit Payment</button>
+        </form>
+      </div>
+    </div>
+  
+  </div>
+  <div id="success-message" class="hidden">
+    <h3>Payment Successful!</h3>
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+</html>
