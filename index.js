@@ -20,7 +20,7 @@ const checkoutBtn = document.getElementById('checkout-button')
 const sneakersAmount = document.getElementById('sneakers-amount')
 const sneakersTotal = document.getElementById('sneakers-total')
 const checkOutPage = document.getElementById('checkout-body')
-
+const mm = document.getElementById('mobile__menu')
 const Paa = document.getElementById('itemNum')
 //checkout page script
 
@@ -64,11 +64,20 @@ hamburgerMenu.addEventListener('click', function () {
   //  hamburgerMenu.classList.toggle('show', true )
   hamburgerMenu.style.display = 'none'
   closeMenu.style.display = 'block'
+  mm.style.display = 'block'
 })
 
 closeMenu.addEventListener('click', function () {
   hamburgerMenu.style.display = 'block'
   closeMenu.style.display = 'none'
+    mm.style.display = 'none'
+})
+mm.childNodes.forEach((element)=>{
+element.addEventListener('click',()=>{
+    hamburgerMenu.style.display = 'block'
+  closeMenu.style.display = 'none'
+    mm.style.display = 'none'
+})
 })
 
 console.log(buttonAdd.innerHTML)
