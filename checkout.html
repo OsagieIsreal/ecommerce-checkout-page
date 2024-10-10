@@ -26,35 +26,16 @@
       
       <div class="payment-info">
         <h3>Payment Information</h3>
-        <!-- <form id="checkout-form">
-          <label for="name">Name on Card</label>
-          <input type="text" id="name" required>
-          
-          <label for="card-number">Card Number</label>
-          <input type="number" id="card-number" placeholder="xxxx xxxx xxxx xxxx" maxlength="19" required>
-          <div id="message"></div>
-          
-          <label for="expiry">Expiry Date</label>
-          <input type="text" id="expiry" placeholder="MM/YY" required>
-          
-          <label for="cvv">CVV</label>
-          <input type="text" id="cvv" required maxlength="4">
-          
-          <button type="submit" class="submit-btn">Submit Payment</button>
-        </form> -->
         <form id="checkout-form">
             <label for="name">Name on Card</label>
             <input type="text" id="cardholder-name" placeholder="Card name" required>
-          
-        
+
             <label for="card-number">Card Number</label>
             <input type="tel" id="card-number" placeholder="xxxx xxxx xxxx xxxx" maxlength="19" required>
             <span class="error" id="card-number-error"></span>
-          
         
             <label for="expiry-date">Expiry Date</label>
-            <input type="text" id="expiry" placeholder="MM/YY" required maxlength="4">
-          
+            <input type="date" id="expiry" placeholder="MM/YY" required maxlength="4">          
         
             <label for="cvv">CVV</label>
             <input type="password" id="cvv" placeholder="123" maxlength="3" required>
@@ -71,8 +52,6 @@
     <h3>Payment Successful!</h3>
   </div>
   
-  
-  <script src="./index.js"></script>
   <script>
     const cardNumberInput = document.getElementById('card-number');
     const cardNumberError = document.getElementById('card-number-error');
@@ -89,7 +68,7 @@
 
       // Format the card number in groups of four digits
       cardNumberInput.value = input.replace(/(\d{4})(\d{4})(\d{4})(\d{4})?/, function(_, g1, g2, g3, g4) {
-        return g1 + ' ' + g2 + ' ' + g3 + (g4 ? ' ' + g4 : '');
+        return g1 + '-' + g2 + '-' + g3 + (g4 ? '-' + g4 : '-');
       });
 
       // Show error if non-numeric characters were entered
@@ -129,3 +108,20 @@
   
 </body>
 </html>
+
+   <!-- <form id="checkout-form">
+          <label for="name">Name on Card</label>
+          <input type="text" id="name" required>
+          
+          <label for="card-number">Card Number</label>
+          <input type="number" id="card-number" placeholder="xxxx xxxx xxxx xxxx" maxlength="19" required>
+          <div id="message"></div>
+          
+          <label for="expiry">Expiry Date</label>
+          <input type="text" id="expiry" placeholder="MM/YY" required>
+          
+          <label for="cvv">CVV</label>
+          <input type="text" id="cvv" required maxlength="4">
+          
+          <button type="submit" class="submit-btn">Submit Payment</button>
+        </form> -->
