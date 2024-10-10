@@ -22,19 +22,13 @@ const sneakersTotal = document.getElementById('sneakers-total')
 const checkOutPage = document.getElementById('checkout-body')
 const mm = document.getElementById('mobile__menu')
 const Paa = document.getElementById('itemNum')
+//validation
+const cardInput = document.getElementById('card-number');
+const form = document.getElementById('checkout-form');
+const message = document.getElementById('message');
 //checkout page script
 
-// document.getElementById('checkout-form').addEventListener('submit', function(checkout) {
-//   checkout.preventDefault();
-  
-//   // Simulate successful payment
-//   const successMessage = document.getElementById('success-message');
-//   successMessage.classList.add('show');
 
-//   setTimeout(() => {
-//     successMessage.classList.remove('show');
-//   }, 3000);
-// });
 
 let state = false
 hoverCart[0].addEventListener('click', function () {
@@ -236,4 +230,35 @@ function getOrderDetails(){
   sneakersTotal.innerText = `$${cost}`
 }
 
+
+
+//validation
+
+
+    // Automatically format input as "xxxx xxxx xxxx xxxx"
+    cardInput.addEventListener('input', function (e) {
+      let input = cardInput.value.replace(/\D/g, ''); // Remove all non-digit characters
+      if (input.length > 16) {
+        input = input.substring(0, 16); // Restrict to 16 digits
+      }
+
+      // Insert space after every 4th digit, resulting in "xxxx xxxx xxxx xxxx"
+      cardInput.value = input.replace(/(\d{4})(\d{4})(\d{4})(\d{4})?/, function(_, g1, g2, g3, g4) {
+        return g1 + '-' + g2 + '-' + g3 + (g4 ? '-' + g4 : '-');
+      });
+    });
+
+    // // Validate form submission
+    // form.addEventListener('submit', function(e) {
+    //   e.preventDefault();
+
+    //   const digitsOnly = cardInput.value.replace(/\D/g, ''); // Get digits only
+    //   if (digitsOnly.length === 16) {
+    //     message.textContent = "Success! Card number is valid.";
+    //     message.style.color = "green";
+    //   } else {
+    //     message.textContent = "Error! Please enter exactly 16 digits.";
+    //     message.style.color = "red";
+    //   }
+    // });
 // checkOutPage.addEventListener('load',getOrderDetails)

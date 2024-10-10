@@ -26,12 +26,13 @@
       
       <div class="payment-info">
         <h3>Payment Information</h3>
-        <form id="checkout-form">
+        <!-- <form id="checkout-form">
           <label for="name">Name on Card</label>
           <input type="text" id="name" required>
           
           <label for="card-number">Card Number</label>
-          <input type="text" id="card-number" required maxlength="22">
+          <input type="number" id="card-number" placeholder="xxxx xxxx xxxx xxxx" maxlength="19" required>
+          <div id="message"></div>
           
           <label for="expiry">Expiry Date</label>
           <input type="text" id="expiry" placeholder="MM/YY" required>
@@ -40,7 +41,28 @@
           <input type="text" id="cvv" required maxlength="4">
           
           <button type="submit" class="submit-btn">Submit Payment</button>
+        </form> -->
+        <form id="checkout-form">
+            <label for="name">Name on Card</label>
+            <input type="text" id="cardholder-name" placeholder="Card name" required>
+          
+        
+            <label for="card-number">Card Number</label>
+            <input type="tel" id="card-number" placeholder="xxxx xxxx xxxx xxxx" maxlength="19" required>
+            <span class="error" id="card-number-error"></span>
+          
+        
+            <label for="expiry-date">Expiry Date</label>
+            <input type="text" id="expiry" placeholder="MM/YY" required maxlength="4">
+          
+        
+            <label for="cvv">CVV</label>
+            <input type="password" id="cvv" placeholder="123" maxlength="3" required>
+          
+          <button type="submit" class="submit-btn">Submit Payment</button>
+          <div id="message"></div>
         </form>
+      
       </div>
     </div>
   
@@ -48,7 +70,62 @@
   <div id="success-message" class="hidden">
     <h3>Payment Successful!</h3>
   </div>
-
+  
+  
   <script src="./index.js"></script>
+  <script>
+    const cardNumberInput = document.getElementById('card-number');
+    const cardNumberError = document.getElementById('card-number-error');
+    const form = document.getElementById('payment-form');
+    const message = document.getElementById('message');
+
+    // Only allow numbers and format the card number input
+    cardNumberInput.addEventListener('input', function() {
+      let input = cardNumberInput.value.replace(/\D/g, ''); // Remove non-numeric characters
+
+      if (input.length > 16) {
+        input = input.substring(0, 16); // Restrict to 16 digits
+      }
+
+      // Format the card number in groups of four digits
+      cardNumberInput.value = input.replace(/(\d{4})(\d{4})(\d{4})(\d{4})?/, function(_, g1, g2, g3, g4) {
+        return g1 + ' ' + g2 + ' ' + g3 + (g4 ? ' ' + g4 : '');
+      });
+
+      // Show error if non-numeric characters were entered
+      if (/\D/.test(cardNumberInput.value)) {
+        cardNumberError.textContent = "";
+      } else {
+        cardNumberError.textContent = "Card number must contain only numbers.";
+      }
+    });
+
+    // Validate the form on submission
+    document.getElementById('checkout-form').addEventListener('submit', function(checkout) {
+  checkout.preventDefault();
+  
+  // Simulate successful payment
+  const successMessage = document.getElementById('success-message');
+  successMessage.classList.add('show');
+
+  setTimeout(() => {
+    successMessage.classList.remove('show');
+  }, 3000);
+});
+    // form.addEventListener('submit', function(e) {
+    //   e.preventDefault();
+    //   const cardNumberDigits = cardNumberInput.value.replace(/\D/g, ''); // Get the digits only
+
+    //   if (cardNumberDigits.length === 16) {
+    //     message.textContent = "Payment successful!";
+    //     message.style.color = "green";
+    //   } else {
+    //     message.textContent = "Please enter a valid 16-digit card number.";
+    //     message.style.color = "red";
+    //   }
+    // });
+  </script>
+
+  
 </body>
 </html>
